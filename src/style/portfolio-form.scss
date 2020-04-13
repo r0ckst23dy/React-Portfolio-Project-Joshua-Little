@@ -1,11 +1,26 @@
 .portfolio-form-wrapper { 
-    display: grid;
+    @include base-grid();
     grid-template-columns: 1fr;
-    grid-gap:21px;
     padding: 42px;
     
     @include input-element();
     input { 
         margin-bottom: 0px;
     }
+    //added style for personal preference. Not part of Jorden's updated styles 
+    .save-btn{
+        @include base-btn();
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 450px;
+        border-radius:  3px;
+    }
+
+    // Optional grid layout for dropzone components
+    /*.image-uploader {
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        grid-gap: 21px;
+    }*/
 }
