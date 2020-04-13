@@ -26,6 +26,13 @@ export default class PortfolioForm extends Component {
     this.componentConfig = this.componentConfig.bind(this);
     this.djsConfig = this.djsConfig.bind(this);
     this.handleThumbDrop = this.handleThumbDrop.bind(this);
+    this.handleBannerDrop = this.handleBannerDrop.bind(this);
+    this.handleLogoDrop = this.handleLogoDrop.bind(this);
+
+
+    this.thumbRef = React.createRef();
+    this.bannerRef = React.createRef();
+    this.logoRef = React.createRef();
   }
 
   handleThumbDrop() {
@@ -34,6 +41,17 @@ export default class PortfolioForm extends Component {
     }
   }
 
+  handleBannerDrop() {
+    return {
+      addedfile: file => this.setState({ banner_image: file })
+    }
+  }
+
+  handleLogoDrop() {
+    return {
+      addedfile: file => this.setState({ logo: file })
+    }
+  }
   componentConfig() {
     return {
       iconFiletypes: [".jpeg", ".png"],
@@ -62,6 +80,13 @@ export default class PortfolioForm extends Component {
       formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
     }
 
+    if (this.state.banner_image) {
+      formData.append("portfolio_item[banner_image]", this.state.banner_image);
+    }
+
+    if (this.state.logo) {
+      formData.append("portfolio_item[logo]", this.state.logo);
+    }
     return formData;
   }
 
@@ -80,6 +105,22 @@ export default class PortfolioForm extends Component {
       )
       .then(response => {
         this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+
+        this.setState({
+          name: "",
+          description: "",
+          category: "eCommerce",
+          position: "",
+          url: "",
+          thumb_image: "",
+          banner_image: "",
+          logo: ""
+        });
+
+        [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
+          ref.current.dropzone.removeAllFiles();
+        });
+
       })
       .catch(error => {
         console.log("portfolio form handle submit error", error);
@@ -139,10 +180,28 @@ export default class PortfolioForm extends Component {
 
           <div className="image-uploader">
             <DropzoneComponent
+              ref={this.thumbRef}
               config={this.componentConfig()}
               djsConfig={this.djsConfig()}
               eventHandlers={this.handleThumbDrop()}
+
+
             />
+            <DropzoneComponent
+              ref={this.bannerRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleBannerDrop()}
+
+            />
+            <DropzoneComponent
+              ref={this.logoRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleLogoDrop()}
+
+            />
+
 
           </div>
 
