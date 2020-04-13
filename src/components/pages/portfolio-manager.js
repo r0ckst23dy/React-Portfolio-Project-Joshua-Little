@@ -12,14 +12,15 @@ export default class PortfolioManager extends Component {
         this.state = {
             portfolioItems: []
         }
-        this.handleSuccessFormSubmission = this.handleSuccessFormSubmission.bind(this);
+        this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this);
         this.handleFormSubimssionError = this.handleFormSubimssionError.bind(this);
     }
 
-    handleSuccessFormSubmission(portfoliioItem) {
-        // TODO
-        // update the portfolioItems State
-        // and add the portfolioItem to the list 
+    handleSuccessfulFormSubmission(portfolioItem) {
+        this.setState({
+            portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+        });
+
 
     }
 
@@ -30,7 +31,7 @@ export default class PortfolioManager extends Component {
 
     getPortfolioItems() {
         axios
-            .get('https://jtlittle.devcamp.space/portfolio/portfolio_items', { withCredentials: true })
+            .get('https://jtlittle.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc', { withCredentials: true })
             .then(response => {
                 // handle success
                 this.setState({
@@ -52,7 +53,7 @@ export default class PortfolioManager extends Component {
             <div className="portfolio-manager-wrapper">
                 <div className="left-column">
                     <PortfolioForm
-                        handleSuccessFormSubmission={this.handleSuccessFormSubmission}
+                        handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
                         handleFormSubimssionError={this.handleFormSubimssionError}
                     />
                 </div>
