@@ -1,0 +1,12 @@
+//general purpose styles
+@import "./variable.scss";
+@import "./mixins.scss";
+@import "./base.scss";
+//specific component styles 
+@import "./button.scss";
+@import "./navigation.scss";
+@import "./portfolio.scss";
+@import "./auth.scss";
+@import "./portfolio-manager.scss";
+@import "./portfolio-sidebar.scss";
+
