@@ -5,7 +5,7 @@
         .portfolio-thumb-img img{ 
             width: 100%;
         }
-        .title-delete-icon-wrapper {
+        .text-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -17,20 +17,27 @@
                 font-weight: 400;
             }
 
-            .delete-icon { 
-                color: $offwhite;
-                transition: 0.5s ease-in-out;
-                color: $offwhite;
-                font-size: 1.25rem;
-                cursor: pointer;
+            .actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 15px;
 
-
-
-                
-                &:hover { 
-                    color: $warning;
+                .action-icon { 
+                    color: $offwhite;
+                    transition: 0.5s ease-in-out;
+                    color: $offwhite;
+                    font-size: 1.25rem;
+                    cursor: pointer;
+    
+    
+    
+                    
+                    &:hover { 
+                        color: $warning;
+                    }
                 }
             }
+
 
         }
     }
