@@ -5,9 +5,33 @@
         .portfolio-thumb-img img{ 
             width: 100%;
         }
+        .title-delete-icon-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-        .title { 
-            color: $offwhite;
+            .title { 
+                font-family: "Bitter", sans-serif;
+                color: $offwhite;
+                font-size: 1.5rem;
+                font-weight: 400;
+            }
+
+            .delete-icon { 
+                color: $offwhite;
+                transition: 0.5s ease-in-out;
+                color: $offwhite;
+                font-size: 1.25rem;
+                cursor: pointer;
+
+
+
+                
+                &:hover { 
+                    color: $warning;
+                }
+            }
+
         }
     }
 }

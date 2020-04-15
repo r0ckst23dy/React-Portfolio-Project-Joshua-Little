@@ -33,6 +33,20 @@
             padding-bottom: 5px;
         }
     }
+    .right-side {
+        a { 
+            cursor: pointer;
+            padding-left: 15px;
+            font-size: 1rem;
+            color: $teal;
+            transition: 0.5 ease-in-out;
+
+            &:hover { 
+                color: $dark-teal;
+            }
+        }
+
+    }
 }
 
 
