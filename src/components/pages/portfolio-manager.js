@@ -11,18 +11,28 @@ export default class PortfolioManager extends Component {
 
         this.state = {
             portfolioItems: [],
-            portfolioEdit: {}
+            portfolioToEdit: {}
         }
+
         this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this);
         this.handleFormSubimssionError = this.handleFormSubimssionError.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
+        this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
+    }
+
+    clearPortfolioToEdit() {
+        this.setState({
+            portfolioToEdit: {}
+        });
+
     }
 
     handleEditClick(portfolioItem) {
         this.setState({
-            portfolioEdit: portfolioItem
+            portfolioToEdit: portfolioItem
         });
+
     }
 
     handleDeleteClick(portfolioItem) {
@@ -85,6 +95,8 @@ export default class PortfolioManager extends Component {
                     <PortfolioForm
                         handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
                         handleFormSubimssionError={this.handleFormSubimssionError}
+                        clearPortfolioToEdit={this.clearPortfolioToEdit}
+                        portfolioToEdit={this.state.portfolioToEdit}
                     />
                 </div>
                 <div className="right-column">
