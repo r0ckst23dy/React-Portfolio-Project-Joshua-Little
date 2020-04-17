@@ -17,6 +17,25 @@
         border-radius:  3px;
     }
 
+    .portfolio-manager-image-wrapper { 
+        img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .image-removal-link { 
+            display: flex;
+            justify-content: center;
+
+            a { 
+                font-weight: 900;
+                color: $warning;
+                cursor: pointer;
+            }
+        }
+    }
     // Optional grid layout for dropzone components
     /*.image-uploader {
         display: grid;
