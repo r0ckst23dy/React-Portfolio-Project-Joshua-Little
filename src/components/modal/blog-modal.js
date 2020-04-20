@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
+import BlogForm from "../blog/blog-form";
+
+ReactModal.setAppElement(".app-wrapper");
 
 export default class BlogModal extends Component {
     constructor(props) {
@@ -21,16 +24,25 @@ export default class BlogModal extends Component {
 
             }
         };
+
+        this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this);
     }
 
+    handleSuccessfulFormSubmission(blog) {
+        console.log('handleSuccessfulFormSubmission', blog);
+
+    }
     render() {
 
         return (
-            <ReactModal style={this.customStyles} onRequestClose={() => {
-                this.props.handleModalClose();
-            }} isOpen={this.props.modalIsOpen}>
-                <h1>I'm in a modal</h1>
-            </ReactModal>
+            <div>
+                <ReactModal style={this.customStyles} onRequestClose={() => {
+                    this.props.handleModalClose();
+                }} isOpen={this.props.modalIsOpen}>
+                    <BlogForm handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission} />
+                </ReactModal>
+
+            </div>
         );
     }
 }
