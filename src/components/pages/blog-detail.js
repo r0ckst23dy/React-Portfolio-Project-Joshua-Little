@@ -10,6 +10,7 @@ export default class BlogDetail extends Component {
             blogItem: {}
         };
     }
+
     getBlogItem() {
         axios
             .get(`https://jtlittle.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`)
@@ -33,7 +34,7 @@ export default class BlogDetail extends Component {
             <div className="blog-container">
                 <div className="content-container">
                     <h1>{title}</h1>
-                    <div className="feature-image-wrapper">
+                    <div className="featured-image-wrapper">
                         <img src={featured_image_url} />
                     </div>
                     <div className="content">{content}</div>

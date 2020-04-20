@@ -12,6 +12,20 @@ class Blog extends Component {
         }
 
         this.getBlogItems = this.getBlogItems.bind(this);
+        this.activateInfiniteScroll();
+    }
+
+    activateInfiniteScroll() {
+        window.onscroll = () => {
+            console.log('window.innerHeight', window.innerHeight);
+            console.log('document.documentElement.scrollTop', document.documentElement.scrollTop);
+            console.log('document.documentElement.offsetHeight', document.documentElement.offsetHeight);
+
+            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+                console.log('get more posts');
+
+            }
+        };
     }
 
     getBlogItems() {
@@ -37,9 +51,12 @@ class Blog extends Component {
         const blogRecords = this.state.blogItems.map(blogItem => {
             return <BlogItem key={blogItem.id} blogItem={blogItem} />
         });
+
         return (
-            <div>
-                {blogRecords}
+            <div className="blog-container">
+                <div className="content-container">
+                    {blogRecords}
+                </div>
             </div>
         );
     }
