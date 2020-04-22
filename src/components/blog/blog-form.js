@@ -32,8 +32,10 @@ export default class BlogForm extends Component {
         { withCredentials: true }
       )
       .then((response) => {
+        //creates record and passes it to blog modal
         this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog);
 
+        //clears form out after creating record
         this.setState({
           title: "",
           blog_status: "",
@@ -55,23 +57,24 @@ export default class BlogForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          onChange={this.handleChange}
-          type="text"
-          name="title"
-          placeholder="Blog Title"
-          value={this.state.title}
-        />
-        <input
-          onChange={this.handleChange}
-          type="text"
-          name="blog_status"
-          placeholder="Blog Status"
-          value={this.state.blog_status}
-        />
-
-        <button>Save</button>
+      <form onSubmit={this.handleSubmit} className="blog-form-wrapper">
+        <div className="two-column">
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="title"
+            placeholder="Blog Title"
+            value={this.state.title}
+          />
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="blog_status"
+            placeholder="Blog Status"
+            value={this.state.blog_status}
+          />
+        </div>
+        <button className="save-btn">Save</button>
       </form>
     );
   }

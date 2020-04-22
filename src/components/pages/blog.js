@@ -27,6 +27,7 @@ class Blog extends Component {
     );
   }
 
+  //adds new blog record to list of blogs and closes modal
   handleSuccessfulNewBlogSubmission(blog) {
     this.setState({
       blogModalIsOpen: false,
@@ -109,7 +110,9 @@ class Blog extends Component {
         />
 
         <div className="new-blog-link">
-          <a onClick={this.handleNewBlogClick}>Modal</a>
+          <a onClick={this.handleNewBlogClick}>
+            <FontAwesomeIcon icon="plus-circle" />
+          </a>
         </div>
 
         <div className="content-container">{blogRecords}</div>

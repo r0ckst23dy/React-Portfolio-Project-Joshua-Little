@@ -1,0 +1,20 @@
+.blog-form-wrapper {
+  @include base-grid();
+  grid-template-columns: 1fr;
+  padding: 42px;
+
+  @include input-element();
+  input {
+    margin-bottom: 0px;
+  }
+  //added style for personal preference. Not part of Jorden's updated styles
+  .save-btn {
+    @include base-btn();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    width: 50px;
+    margin-left: 333px;
+  }
+}

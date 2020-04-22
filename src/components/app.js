@@ -3,7 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faSignOutAlt, faEdit, faMinusCircle, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrash,
+  faSignOutAlt,
+  faEdit,
+  faMinusCircle,
+  faSpinner,
+  faPlusCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
 import Home from "./pages/home";
@@ -16,7 +23,14 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit, faMinusCircle, faSpinner);
+library.add(
+  faTrash,
+  faSignOutAlt,
+  faEdit,
+  faMinusCircle,
+  faSpinner,
+  faPlusCircle
+);
 
 export default class App extends Component {
   constructor(props) {
@@ -24,7 +38,7 @@ export default class App extends Component {
 
     // intial log in state
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN",
     };
 
     // binding event login handlers for state after event
@@ -36,27 +50,27 @@ export default class App extends Component {
   // event handler showing successful login
   handleSuccessfulLogin() {
     this.setState({
-      loggedInStatus: "LOGGED_IN"
+      loggedInStatus: "LOGGED_IN",
     });
   }
 
   // event handler showing unsuccessful login
   handleUnsuccessfulLogin() {
     this.setState({
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN",
     });
   }
 
   handleSuccessfulLogout() {
     this.setState({
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN",
     });
   }
 
   checkLoginStatus() {
     return axios
       .get("https://api.devcamp.space/logged_in", { withCredentials: true })
-      .then(response => {
+      .then((response) => {
         //response of api
         const loggedIn = response.data.logged_in;
         //state of response
@@ -69,11 +83,11 @@ export default class App extends Component {
           return loggedIn;
         } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
           this.setState({
-            loggedInStatus: "LOGGED_IN"
+            loggedInStatus: "LOGGED_IN",
           });
         } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
           this.setState({
-            loggedInStatus: "NOT_LOGGED_IN"
+            loggedInStatus: "NOT_LOGGED_IN",
           });
         }
       });
@@ -89,7 +103,7 @@ export default class App extends Component {
         key="portfolio-manager"
         path="/portfolio-manager"
         component={PortfolioManager}
-      />
+      />,
     ];
   }
 
@@ -107,7 +121,7 @@ export default class App extends Component {
               <Route exact path="/" component={Home} />
               <Route
                 path="/auth"
-                render={props => (
+                render={(props) => (
                   <Auth
                     {...props}
                     handleSuccessfulLogin={this.handleSuccessfulLogin}

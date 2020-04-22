@@ -29,6 +29,7 @@ export default class BlogModal extends Component {
     );
   }
 
+  //blog record from blog form. passes record to blog
   handleSuccessfulFormSubmission(blog) {
     this.props.handleSuccessfulNewBlogSubmission(blog);
   }
