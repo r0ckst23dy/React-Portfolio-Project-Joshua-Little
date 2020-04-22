@@ -10,8 +10,8 @@ export default class BlogForm extends Component {
       blog_status: "",
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   buildForm() {
@@ -32,7 +32,12 @@ export default class BlogForm extends Component {
         { withCredentials: true }
       )
       .then((response) => {
-        this.props.handleSuccessfulFormSubmission(response.data);
+        this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog);
+
+        this.setState({
+          title: "",
+          blog_status: "",
+        });
       })
       .catch((error) => {
         console.log("handleSubmit for blog error", error);
@@ -55,14 +60,14 @@ export default class BlogForm extends Component {
           onChange={this.handleChange}
           type="text"
           name="title"
-          placeholder="title"
+          placeholder="Blog Title"
           value={this.state.title}
         />
         <input
           onChange={this.handleChange}
           type="text"
           name="blog_status"
-          placeholder="blog_status"
+          placeholder="Blog Status"
           value={this.state.blog_status}
         />
 
