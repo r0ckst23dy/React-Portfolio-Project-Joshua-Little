@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BlogItem = props => {
     const {
         id,
-        blog_staus,
+        blog_status,
         content,
         title,
         feature_image_url

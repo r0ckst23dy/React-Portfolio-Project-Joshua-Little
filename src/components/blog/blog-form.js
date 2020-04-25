@@ -7,7 +7,7 @@ export default class BlogForm extends Component {
 
     this.state = {
       title: "",
-      blog_status: "",
+      blog_status: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,17 +31,18 @@ export default class BlogForm extends Component {
         this.buildForm(),
         { withCredentials: true }
       )
-      .then((response) => {
+      .then(response => {
         //creates record and passes it to blog modal
         this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog);
 
         //clears form out after creating record
         this.setState({
           title: "",
-          blog_status: "",
+          blog_status: ""
         });
+
       })
-      .catch((error) => {
+      .catch(error => {
         console.log("handleSubmit for blog error", error);
       });
 
@@ -51,7 +52,7 @@ export default class BlogForm extends Component {
   //handles changes in form data
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   }
 

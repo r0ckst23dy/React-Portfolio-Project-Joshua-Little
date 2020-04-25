@@ -107,6 +107,7 @@ export default class App extends Component {
     ];
   }
 
+  //when using render prop with fat arrow syntax use parens, not curly brackets
   render() {
     return (
       <div className="container">
@@ -139,7 +140,12 @@ export default class App extends Component {
                 path="/portfolio/:slug"
                 component={PortfolioDetail}
               />
-              <Route path="/blog" component={Blog} />
+              <Route
+                path="/blog"
+                render={(props) => (
+                  <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
+                )}
+              />
               <Route path="/b/:slug" component={BlogDetail} />
               <Route component={NoMatch} />
             </Switch>
