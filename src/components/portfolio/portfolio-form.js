@@ -108,6 +108,7 @@ export default class PortfolioForm extends Component {
       addedfile: file => this.setState({ logo: file })
     };
   }
+
   componentConfig() {
     return {
       iconFiletypes: [".jpeg", ".png"],
