@@ -31,14 +31,19 @@ export default class RichTextEditor extends Component {
         );
     }
 
+    // promise based method for image
     getBase64(file, callback) {
+        // instance for calling FileReader module
         let reader = new FileReader();
+        //brings in and reads data for the file
         reader.readAsDataURL(file);
+        // a promise that calls callback function with result from readAsDataURL function
         reader.onload = () => callback(reader.result);
+        // catch error if promise does not come back
         reader.onerror = error => { };
     }
 
-    //method to handle the process of uploading 
+    //method to handle the process of uploading image
     uploadFile(file) {
         return new Promise((resolve, reject) => {
             this.getBase64(file, data => resolve({ data: { link: data } }));
