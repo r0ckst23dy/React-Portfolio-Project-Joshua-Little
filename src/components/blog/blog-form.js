@@ -9,6 +9,7 @@ export default class BlogForm extends Component {
     super(props);
 
     this.state = {
+      id: "",
       title: "",
       blog_status: "",
       content: "",
@@ -27,7 +28,15 @@ export default class BlogForm extends Component {
   }
 
 
-
+  componentWillMount() {
+    if (this.props.editMode) {
+      this.setState({
+        id: this.props.blog.id,
+        title: this.props.blog.title,
+        status: this.props.blog.blog_status
+      });
+    }
+  }
   componentConfig() {
     return {
       iconFiletypes: [".jpeg", ".png"],
@@ -135,6 +144,8 @@ export default class BlogForm extends Component {
         <div className="one-column">
           <RichTextEditor
             handleRichTextEditorChange={this.handleRichTextEditorChange}
+            editMode={this.props.editMode}
+            contentToEdit={this.props.editMode && this.props.blog.content ? this.props.blog.content : null}
           />
         </div>
 
