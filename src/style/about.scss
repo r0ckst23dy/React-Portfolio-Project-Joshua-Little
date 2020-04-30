@@ -1,0 +1,15 @@
+.about-page-wrapper { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    ;
+    height: 100vh;
+
+    .left-column {
+        background-size: cover;
+    }
+
+    .right-column {
+        padding-left: 20px;
+        background-color: $offwhite;
+    }
+}
