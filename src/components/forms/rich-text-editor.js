@@ -15,12 +15,18 @@ export default class RichTextEditor extends Component {
         this.uploadFile = this.uploadFile.bind(this);
     }
 
+    //life cycle hook for edit mode to edit blog content
     componentWillMount() {
         if (this.props.editMode && this.props.contentToEdit) {
-            const blocksFromHtml = htmlToDraft(this.props.contentToEdit);
+            // grabs and parses html string
+            const blocksFromHtml = htmlToDraft(this.props.contentToEdit)
+            // destructoring for html string
             const { contentBlocks, entityMap } = blocksFromHtml;
+            // variable for calling content state and calling variables for hraftjs to work with 
             const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+            // brings in content to edit
             const editorState = EditorState.createWithContent(contentState);
+            // sets state to edit content
             this.setState({ editorState });
         }
     }
