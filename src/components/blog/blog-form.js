@@ -3,7 +3,7 @@ import axios from "axios";
 import DropzoneComponent from "react-dropzone-component";
 
 import RichTextEditor from "../forms/rich-text-editor";
-
+// TODO add handlesubmit helper git branch already created 
 export default class BlogForm extends Component {
   constructor(props) {
     super(props);
@@ -48,12 +48,14 @@ export default class BlogForm extends Component {
 
   // TODO use destructoring for this method
   componentWillMount() {
+    const { id, title, blog_status, content } = this.props.blog;
     if (this.props.editMode) {
       this.setState({
-        id: this.props.blog.id,
-        title: this.props.blog.title,
-        blog_status: this.props.blog.blog_status,
-        content: this.props.blog.content,
+        blog: this.props.blog,
+        // id: this.props.blog.id,
+        // title: this.props.blog.title,
+        // blog_status: this.props.blog.blog_status,
+        // content: this.props.blog.content,
         apiUrl: `https://api.devcamp.space/portfolio/portfolio_blogs/${this.props.blog.id}`,
         apiAction: "patch"
       });
