@@ -20,20 +20,21 @@ const Contact = () => {
                             <FontAwesomeIcon icon="phone" />
                         </div>
                         <div className="text">434-818-2412</div>
-                        <div className="bullet-point-group">
-                            <div className="icon">
-                                <FontAwesomeIcon icon="envelope" />
-                            </div>
-                            <div className="text">jtlittle90@gmail.com</div>
-                        </div>
-                        <div className="bullet-point-group">
-                            <div className="icon">
-                                <FontAwesomeIcon icon="map-marked-alt" />
-                            </div>
-                            <div className="text">Lynchburg,VA</div>
-                        </div>
-
                     </div>
+                    <div className="bullet-point-group">
+                        <div className="icon">
+                            <FontAwesomeIcon icon="envelope" />
+                        </div>
+                        <div className="text">jtlittle90@gmail.com</div>
+                    </div>
+                    <div className="bullet-point-group">
+                        <div className="icon">
+                            <FontAwesomeIcon icon="map-marked-alt" />
+                        </div>
+                        <div className="text">Lynchburg,VA</div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -41,3 +42,4 @@ const Contact = () => {
 }
 
 export default Contact;
+
