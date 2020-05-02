@@ -24,7 +24,7 @@ export default class PortfolioDetail extends Component {
                 this.setState({
                     portfolioItem: response.data.portfolio_item
                 })
-
+                log
             })
             .catch(error => {
                 // handle error
@@ -32,17 +32,34 @@ export default class PortfolioDetail extends Component {
             });
     }
 
-    // render banner image
-    // bring in url
+
 
     render() {
-        const { banner_image_url, category, description, name, thumb_image_url, url } = this.state.portfolioItem;
-        return (
-            <div>
+        const { banner_image_url, category, description, logo_url,name, thumb_image_url, url } = this.state.portfolioItem;
 
-                <h2>{name}</h2>
-                <p>{description}</p>
-                <a>{url}</a>
+        const bannerStyles = { 
+            backgroundImage: "url(" + banner_image_url + ")",
+            backgroundSize: "cover",
+            background: "no-repeat",
+            backgroundPosition: "center center"
+        }
+
+        return (
+            <div className="portfolio-detail-wrapper">
+                <div className="banner" style={bannerStyles}>
+                    
+                    <img src={logo_url} />
+
+                </div>
+
+                <div className="portfolio-detail-description-wrapper">
+                        <div className= "description">{description}</div>
+                </div>     
+                <div className="bottom-content-wrapper">
+                <a href={url} className="site-link" target="_blank">
+                    Visit {name}
+                </a>
+                </div>           
             </div>
         );
     }
