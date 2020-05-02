@@ -28,30 +28,32 @@ export default class PortfolioItem extends Component {
 
         const { id, logo_url, description, thumb_image_url } = this.props.item;
         return (
-            <div className="portfolio-item-wrapper"
-                //listens for mouse event over component
-                //arrow function keeps the function from being called until even occurs
-                onMouseEnter={() => this.handleMouseEnter()}
-                //listens for mouse event leaving the component
-                onMouseLeave={() => this.handleMouseLeave()}
+            <Link to={`/portfolio/${id}`} >
+                <div className="portfolio-item-wrapper"
+                    //listens for mouse event over component
+                    //arrow function keeps the function from being called until even occurs
+                    onMouseEnter={() => this.handleMouseEnter()}
+                    //listens for mouse event leaving the component
+                    onMouseLeave={() => this.handleMouseLeave()}
 
-            >
+                >
 
-                <div
-                    //curly brackets make the className an object and able to add image-blur class style
-                    className={"portfolio-img-background " + this.state.portfolioItemClass}
-                    style={{
-                        backgroundImage: "url(" + thumb_image_url + ")"
-                    }}
-                />
+                    <div
+                        //curly brackets make the className an object and able to add image-blur class style
+                        className={"portfolio-img-background " + this.state.portfolioItemClass}
+                        style={{
+                            backgroundImage: "url(" + thumb_image_url + ")"
+                        }}
+                    />
 
-                <div className="img-text-wrapper">
-                    <div className="logo-wrapper">
-                        <img src={logo_url} />
+                    <div className="img-text-wrapper">
+                        <div className="logo-wrapper">
+                            <img src={logo_url} />
+                        </div>
+                        <div className="subtitle">{description}</div>
                     </div>
-                    <div className="subtitle">{description}</div>
                 </div>
-            </div>
+            </Link>
         );
     }
 }
