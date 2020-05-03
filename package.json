@@ -2,8 +2,7 @@
   "name": "joshua-little-portfolio",
   "version": "1.0.0",
   "engines": {
-    "node": "14.1.0",
-    "npm": "6.14.4"
+    "node": "14.1.0"
   },
   "description": "Portfolio built with react library",
   "scripts": {
