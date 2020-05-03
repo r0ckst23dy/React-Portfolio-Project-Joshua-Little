@@ -87,10 +87,7 @@ module.exports = webpackMerge(webpackCommon, {
     new CopyWebpackPlugin([{ from: path.resolve(__dirname, "../static") }], {
       ignore: ["index.html", "favicon.ico"]
     }),
-    new CleanWebpackPlugin(["dist"], {
-      root: path.resolve(__dirname, ".."),
-      exclude: ".gitignore"
-    }),
+    new CleanWebpackPlugin(),
     new DefinePlugin({
       "process.env": {
         NODE_ENV: '"production"'
