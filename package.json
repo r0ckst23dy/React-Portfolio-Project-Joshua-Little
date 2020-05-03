@@ -1,6 +1,10 @@
 {
   "name": "joshua-little-portfolio",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.1.0",
+    "npm": "6.14.4"
+  },
   "description": "Portfolio built with react library",
   "scripts": {
     "preinstall": "npm set audit false",
@@ -53,6 +57,7 @@
     "css-loader": "^3.4.2",
     "draft-js": "^0.11.5",
     "draftjs-to-html": "^0.9.1",
+    "engines": "^0.4.0",
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-react": "^7.19.0",
@@ -63,7 +68,8 @@
     "html-to-draftjs": "^1.5.0",
     "html-webpack-plugin": "^3.2.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.14.0",
+    "node": "^14.0.0",
+    "node-sass": "^4.13.1",
     "npm-audit-resolver": "^2.2.0",
     "postcss-loader": "^3.0.0",
     "react": "16.13.0",
