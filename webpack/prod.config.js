@@ -3,7 +3,6 @@ const webpackMerge = require("webpack-merge");
 const autoprefixer = require("autoprefixer");
 const webpackCommon = require("./common.config"); 
 
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 // webpack plugins
 const HtmlWebpackPlugin = require("html-webpack-plugin");
