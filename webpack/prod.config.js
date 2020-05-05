@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const DefinePlugin = require("webpack/lib/DefinePlugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
 
@@ -88,7 +88,9 @@ module.exports = webpackMerge(webpackCommon, {
     new CopyWebpackPlugin([{ from: path.resolve(__dirname, "../static") }], {
       ignore: ["index.html", "favicon.ico"]
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanAfterEveryBuildPatterns: ['dist']
+    }),
     // new engines=Plugin({
     //   root: path.resolve(__dirname, ".."),
     //   exclude: ".gitignore"
