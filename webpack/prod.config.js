@@ -21,7 +21,7 @@ module.exports = webpackMerge(webpackCommon, {
   output: {
     path: path.resolve(__dirname, "../dist"),
 
-    filename: "[name]-[hash].min.js",
+    filename: "[name].js",
 
     sourceMapFilename: "[name]-[hash].map",
 
