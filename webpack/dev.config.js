@@ -18,7 +18,7 @@ module.exports = webpackMerge(webpackCommon, {
   
     path: path.resolve(__dirname, '../static/dist'),
 
-    filename: '[name].js',
+    filename: '[file].map[query]',
 
     sourceMapFilename: '[name].map',
 
